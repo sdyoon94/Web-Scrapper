@@ -18,7 +18,7 @@
 - [ ] Flask를 이용하여 웹사이트에서 정보 주고 받기
 - [ ] 추출한 구직정보를 웹사이트에 출력하기
 - [ ] Fake DB 만들기
-- [ ] CSV파일로 저장하기 기능 구현
+- [ ] CSV파일로 저장하기 기능 구현
 - [ ] 최종 결과물 업데이트
 
 ## 결과물
@@ -29,26 +29,26 @@
 
 - urllib3보다 requests가 더 사용하기 편하다.
 - [BeautifulSoup](https://www.crummy.com/software/BeautifulSoup/bs4/doc/)를 이용하여 HTML문서에서 원하는 데이터에 간편하게 접근할 수 있다.
-- list[-1]은 list의 마지막 요소를 가리킨다. list[0:-1] 또는 list[:-1]은 list의 첫번째부터 마지막 전까지를 나타낸다.(마지막 요소를 제외한 모든 요소)<br/>그걸로 봐서는 []안의 -1은 'len(list)-1'로 추정된다.(개인적인 생각)
+- list[-1]은 list의 마지막 요소를 가리킨다. list[0:-1] 또는 list[:-1]은 list의 첫번째부터 마지막 전까지를 나타낸다.(마지막 요소를 제외한 모든 요소)<br/>[]안의 -1은 'len(list)-1'로 추정된다.(개인적인 생각)
 
 ## 기타
 
-- module 설치 확인하기
+- package 확인하기
 
 ```sh
-$ pip show 'module-name'
+$ pip show 'package-name'
 ```
 
-- module 설치하기
+- package 설치하기
 
 ```sh
-$ pip install 'module-name'
+$ pip install 'package-name'
 ```
 
 - 다른 환경에서 작업할 일이 많을 경우 requirements.txt로 패키지를 관리하면 편리하다.<br/>(이름을 꼭 저걸로 할 필요는 없으나 대부분 저 이름으로 관리)
 
 ```sh
-#파일 생성
+#파일 생성
 $ pip freeze > requirements.txt
 
 #패키지 설치
