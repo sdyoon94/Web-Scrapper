@@ -15,7 +15,7 @@
 - [x] Indeed에서 구직정보 추출하기
 - [x] StackOverflow에서 구직정보 추출하기
 - [x] CSV파일로 저장하기
-- [ ] Flask를 이용하여 웹사이트에서 정보 주고 받기
+- [x] Flask를 이용하여 웹사이트에서 정보 주고 받기
 - [ ] 추출한 구직정보를 웹사이트에 출력하기
 - [ ] Fake DB 만들기
 - [ ] CSV파일로 저장하기 기능 구현
@@ -40,6 +40,28 @@ file = open("파일명.csv", mode="w")
 writer = csv.writer(file)
 writer.writerow(["내용", "내용", "내용", ..., "내용"])
 ```
+
+- Flask 사용하기
+
+```python
+app = Flask("앱이름")
+
+@app.route("/")           # 기본주소(주로 index.html)
+def 함수이름():             # @app.route("주소") 다음에 오는 함수에 주소 적용!
+  return html형식          # return 값에 html형식으로 문자열을 입력하거나
+@app.route("/기타주소")
+def 함수이름():
+  return render_template("파일이름.html") # 외부 html을 render_template을 사용해 불러올 수 있음.
+@app.route("/<변수 이름>")  # 주소에서 변수를 받아오면
+def 함수이름(변수 이름):      # 함수에서 매개변수로 사용해야함(안 하면 오류 발생)
+  return html형식
+                          # 이떄 기본 주소는 http://0.0.0.0/여야 하는데
+app.run(host="0.0.0.0")   # 터미널에 * Running on http://192.168.###.###:5000/
+                          # 라고 뜨면서 저 주소로 접속해야 html이 나타남
+```
+
+- Query arguments : http://주소/###?단어=단어&단어=단어... 에서 ? 뒤에 나오는 긴 문자열
+- render_template("파일명.html", 변수 이름 = 변수)를 통해 html파일로 변수를 넘길 수 있다. html에서는 {{변수 이름}}으로 사용 가능하다.
 
 ## 기타
 
