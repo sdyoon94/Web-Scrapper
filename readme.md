@@ -13,8 +13,8 @@
 
 - [x] 파이썬 기초 강의
 - [x] Indeed에서 구직정보 추출하기
-- [ ] StackOverflow에서 구직정보 추출하기
-- [ ] CSV파일로 저장하기
+- [x] StackOverflow에서 구직정보 추출하기
+- [x] CSV파일로 저장하기
 - [ ] Flask를 이용하여 웹사이트에서 정보 주고 받기
 - [ ] 추출한 구직정보를 웹사이트에 출력하기
 - [ ] Fake DB 만들기
@@ -27,9 +27,19 @@
 
 ## 강의에서 배운 Tips
 
+- 문자열에 변수 집어넣기 : f"~~~~{변수 이름}~~"
 - urllib3보다 requests가 더 사용하기 편하다.
 - [BeautifulSoup](https://www.crummy.com/software/BeautifulSoup/bs4/doc/)를 이용하여 HTML문서에서 원하는 데이터에 간편하게 접근할 수 있다.
 - list[-1]은 list의 마지막 요소를 가리킨다. list[0:-1] 또는 list[:-1]은 list의 첫번째부터 마지막 전까지를 나타낸다.(마지막 요소를 제외한 모든 요소)<br/>[]안의 -1은 'len(list)-1'로 추정된다.(개인적인 생각)
+- csv 파일로 저장하기
+
+```python
+import csv
+
+file = open("파일명.csv", mode="w")
+writer = csv.writer(file)
+writer.writerow(["내용", "내용", "내용", ..., "내용"])
+```
 
 ## 기타
 
