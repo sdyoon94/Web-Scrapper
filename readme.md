@@ -18,7 +18,7 @@
 - [x] Flask를 이용하여 웹사이트에서 정보 주고 받기
 - [x] 사용자에게 입력값을 받아 Scrapping하기
 - [x] Fake DB 만들기
-- [ ] 웹사이트에 구직정보 렌더링하기
+- [x] 웹사이트에 구직정보 렌더링하기
 - [ ] CSV파일로 저장하기 기능 구현
 - [ ] 최종 결과물 업데이트
 
@@ -63,6 +63,21 @@ app.run(host="0.0.0.0")   # 터미널에 * Running on http://192.168.###.###:500
 
 - Query arguments : http://주소/###?단어=단어&단어=단어... 에서 ? 뒤에 나오는 긴 문자열
 - render_template("파일명.html", 변수 이름 = 변수)를 통해 html파일로 변수를 넘길 수 있다. html에서는 {{변수 이름}}으로 사용 가능하다.
+- html에서 python 문법은 {% python %}으로 사용 가능하다. ※ 주의! : 꼭 {% endif %}, {% endfor %} 등으로 끝났음을 나타내야한다.
+
+```html
+<!-- 변수 사용은 이렇게! -->
+<h1>Hi {{Name}}~</h1>
+<section>
+  <!-- 문법 사용은 이렇게! -->
+  {% for n in range(5) %}
+  <span>{{n}}번째 span<br /></span>
+  {% endfor %}
+  <!-- 꼭 닫아주기! -->
+</section>
+```
+
+- css grid에 대해 더 배우고 싶으면 css master 강좌 수강하기
 
 ## 기타
 

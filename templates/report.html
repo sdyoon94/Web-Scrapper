@@ -5,9 +5,28 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Job Search</title>
+    <style>
+      section {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 20px;
+      }
+    </style>
   </head>
   <body>
     <h1>Search results</h1>
     <h3>Found {{results_number}} results for: {{searching_by}}</h3>
+    <section>
+      <h4>Title</h4>
+      <h4>Company</h4>
+      <h4>Location</h4>
+      <h4>Link</h4>
+      {% for job in jobs %}
+      <span>{{job.title}}</span>
+      <span>{{job.company}}</span>
+      <span>{{job.location}}</span>
+      <a href="{{job.link}}">Apply</a>
+      {% endfor %}
+    </section>
   </body>
 </html>
