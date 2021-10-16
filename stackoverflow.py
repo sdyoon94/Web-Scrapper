@@ -1,10 +1,8 @@
 import requests
 from bs4 import BeautifulSoup
 
-URL = "https://stackoverflow.com/jobs?q=python"
-
-def get_last_page():
-  result = requests.get(URL)
+def get_last_page(url):
+  result = requests.get(url)
   soup = BeautifulSoup(result.text,"html.parser")
   pagination = soup.find("div", {"class":"s-pagination"}).find_all("a")[-2]
   last_page = pagination.get_text(strip=True)
@@ -19,18 +17,20 @@ def extract_job(html):
   return {"title": title, "company": company, "location": location, "link": "https://stackoverflow.com/jobs/{job_id}"}
 
 
-def extract_jobs(last_page):
+def extract_jobs(last_page, url):
   jobs=[]
   for page in range(last_page):
     print(f"Scrapping StackOverflow : Page {page+1}")
-    result = requests.get(f"{URL}&pg={page+1}")
+    result = requests.get(f"{url}&pg={page+1}")
     soup = BeautifulSoup(result.text,"html.parser")
     results = soup.find_all("div",{"class":"-job"})
     for result in results:
       job = extract_job(result)
       jobs.append(job)
   return jobs
-def get_jobs():
-  last_page = get_last_page()
-  jobs = extract_jobs(last_page)
+
+def get_jobs(word):
+  url = f"https://stackoverflow.com/jobs?q={word}"
+  last_page = get_last_page(url)
+  jobs = extract_jobs(last_page, url)
   return jobs
